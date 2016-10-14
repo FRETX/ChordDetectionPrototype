@@ -25,9 +25,9 @@ for i = 1:ceil(length(audio)/frameLength)
 	
 	r = 2;
 	C = zeros(12,1);
-	fScale = (fs/2/length(X));
+% 	fScale = (fs/2/length(X));
 	for n = 0:11
-		for phi = 1:3
+		for phi = 1:5
 			for h = 1:2
 				kprime = round(note(n)*phi*h/(fs/frameLength));
 				k0 = kprime - (r*h);
@@ -40,7 +40,7 @@ for i = 1:ceil(length(audio)/frameLength)
 % 				plot((k0+b-1)*fScale,X(k0+b-1),'go');
 % 				xlim([k0-10,k1+10]*fScale);
 % 				hold off;
-				C(n+1) = C(n+1) + max(X(k0:k1)) / h;
+				C(n+1) = C(n+1) + (max(X(k0:k1)) / h);
 			end
 		end
 	end

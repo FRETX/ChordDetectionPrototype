@@ -1,4 +1,4 @@
-wavfile = 'C.wav';
+wavfile = 'A.wav';
 [y fs] = wavread(wavfile);
 if(size(y,2) == 2)
 	y = mean(y,2);
@@ -19,4 +19,5 @@ set(gca,'YTick',1:12);
 set(gca,'YTickLabel',noteStrings);
 
 
-[chordNumbers,chordStrings] = chordDetect(C)
+[chords,chordNames] = chordDetect(C);
+chords{1}
