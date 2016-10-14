@@ -9,7 +9,7 @@ for i = 1:ceil(length(audio)/frameLength)
 	frameBegin = (i-1) * frameShift + 1;
 	frameEnd = frameBegin + frameLength - 1;
 	if(frameEnd > length(audio))
-		frame = [ audio(frameBegin:length(audio)) zeros(frameBegin+frameLength-1-length(audio),1)];
+		frame = [ audio(frameBegin:length(audio)) ; zeros(frameBegin+frameLength-1-length(audio),1)];
 	else
 		frame = audio(frameBegin:frameEnd);
 	end
@@ -48,6 +48,6 @@ for i = 1:ceil(length(audio)/frameLength)
 	
 end
 
-chroma = circshift(chroma,-1);
+% chroma = circshift(chroma,-1);
 
 end
